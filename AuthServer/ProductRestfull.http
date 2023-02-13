@@ -1,0 +1,11 @@
+@BaseUrl = http://localhost:5002/
+
+###
+POST  {{BaseUrl}}User
+Content-Type: application/json
+
+{
+    "userName": "nurcankahya",
+    "password": "15932a5sd5458Sws",
+    "email": "nurcankahya@gmail.com"
+}

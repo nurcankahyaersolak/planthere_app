@@ -1,0 +1,113 @@
+  version: "2.1"
+  services:
+    authserver_db:
+      container_name: authserver_db
+      environment:
+        - SA_PASSWORD=password123.
+        - ACCEPT_EULA=Y
+        - MSSQL_PID = Express
+      ports:
+        - "5434:1433"
+      volumes:
+        - authserver_db_volume:/var/opt/mssql 
+      restart: always
+    
+    planthere_db:
+      container_name: planthere_db
+      environment:
+        - SA_PASSWORD=password123.
+        - ACCEPT_EULA=Y
+      ports:
+        - "5435:1433"
+      volumes:
+        - planthere_db_volume:/var/opt/mssql
+      restart: always 
+    
+    rabbitmq:
+      container_name: rabbitmq
+      ports:
+        - "5672:5672"
+        - "15672:15672"
+      environment:
+        - RABBITMQ_DEFAULT_USER=guest
+        - RABBITMQ_DEFAULT_PASS=guest
+      restart: always 
+    
+    redis:
+      container_name: redis
+      ports:
+        - "6379:6379"
+      restart: always 
+    
+    elasticsearch:
+      container_name: elasticsearch
+      ports:
+        - "9200:9200"
+      environment:
+        - xpack.security.enabled=false
+        - discovery.type=single-node 
+      volumes:
+        - esdata:/usr/share/elasticsearch/data
+      restart: always 
+   
+    planthere_dotnet_api:
+      container_name: planthere_dotnet_api
+      environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+        - ASPNETCORE_URLS=http://+:80
+        - "ConnectionStrings:SQLConnection=Server=planthere_db; Database=planthere; User=sa; Password=password123."
+        - "RabbitMQConfiguration:HostName=host.docker.internal"
+        - "RabbitMQConfiguration:Port=5672"
+        - "RabbitMQConfiguration:UserName=guest"
+        - "RabbitMQConfiguration:Password=guest"
+        - "RedisConfiguration:Url=redis"
+        - "RedisConfiguration:Port=6379"
+        - "RedisConfiguration:Host=host.docker.internal"
+        - "ESConfiguration:Url=http://elasticsearch:9200"
+      ports:
+        - "5000:80"
+      depends_on: 
+        - planthere_db
+        - rabbitmq
+        - redis
+        - elasticsearch
+      restart: always
+            
+    planthere_nodejs_api:
+        container_name: planthere_nodejs_api
+        environment:
+          - NODE_ENV=Development 
+        ports:
+          - "4000:4000"
+        depends_on:
+          - planthere_db
+        restart: always
+    
+    authserver_api:
+      container_name: authserver_api
+      environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+        - ASPNETCORE_URLS=http://+:80
+        - "ConnectionStrings:SQLConnection=Server=authserver_db; Database=authserver; User=sa; Password=password123."
+        - "RabbitMQConfiguration:HostName=host.docker.internal"
+        - "RabbitMQConfiguration:Port=5672"
+        - "RabbitMQConfiguration:UserName=guest"
+        - "RabbitMQConfiguration:Password=guest"
+      ports:
+        - 5002:80
+      depends_on: 
+        - authserver_db
+        - rabbitmq
+      restart: always
+
+    reactjs_ui:
+      container_name: reactjs_ui
+      ports:
+        - 3000:3000
+      environment:
+        - NODE_ENV=development
+      depends_on:
+        - authserver_api
+        - planthere_dotnet_api
+        - planthere_nodejs_api
+      restart: always

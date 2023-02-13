@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Apps\PlantHere\AuthServer\AuthServer.API\bin\Release\net6.0\publish\</_PublishTargetUrl>
+    <History>False|2022-12-08T13:40:08.6919908Z;True|2022-12-08T16:35:53.9223743+03:00;True|2022-12-08T16:31:23.8637190+03:00;True|2022-12-08T16:28:05.1149718+03:00;</History>
+    <LastFailureDetails />
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="SQLConnection">
+      <Value>Data Source=TR-ADN-2S0K8D3%3bInitial Catalog=AuthServerDb%3bIntegrated Security=True%3bConnect Timeout=30%3bEncrypt=False%3bTrustServerCertificate=False%3bApplicationIntent=ReadWrite%3bMultiSubnetFailover=False</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="AuthServer.Persistence.AppDbContext">
+      <Value>Data Source=TR-ADN-2S0K8D3%3bInitial Catalog=AuthServerDb%3bIntegrated Security=True%3bConnect Timeout=30%3bEncrypt=False%3bTrustServerCertificate=False%3bApplicationIntent=ReadWrite%3bMultiSubnetFailover=False</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

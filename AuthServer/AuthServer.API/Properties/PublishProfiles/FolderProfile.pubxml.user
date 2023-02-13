@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Apps\PlantHere\AuthServer\AuthServer.API\bin\Release\net6.0\publish\</_PublishTargetUrl>
+    <History>True|2023-02-03T14:47:28.4561356Z;True|2022-12-08T16:47:54.6492616+03:00;True|2022-12-08T16:27:34.0077292+03:00;True|2022-12-08T16:27:17.8467014+03:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

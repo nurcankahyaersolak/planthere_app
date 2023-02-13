@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="CQRS - Copy\**" />
+		<Compile Remove="CQRS\Authentication\Queries\**" />
+		<Compile Remove="CustomResults - Copy\**" />
+		<Compile Remove="Decorators - Copy\**" />
+		<Compile Remove="Interfaces - Copy\**" />
+		<Compile Remove="Mapping - Copy\**" />
+		<Compile Remove="Middlewares - Copy\**" />
+		<EmbeddedResource Remove="CQRS - Copy\**" />
+		<EmbeddedResource Remove="CQRS\Authentication\Queries\**" />
+		<EmbeddedResource Remove="CustomResults - Copy\**" />
+		<EmbeddedResource Remove="Decorators - Copy\**" />
+		<EmbeddedResource Remove="Interfaces - Copy\**" />
+		<EmbeddedResource Remove="Mapping - Copy\**" />
+		<EmbeddedResource Remove="Middlewares - Copy\**" />
+		<None Remove="CQRS - Copy\**" />
+		<None Remove="CQRS\Authentication\Queries\**" />
+		<None Remove="CustomResults - Copy\**" />
+		<None Remove="Decorators - Copy\**" />
+		<None Remove="Interfaces - Copy\**" />
+		<None Remove="Mapping - Copy\**" />
+		<None Remove="Middlewares - Copy\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\AuthServer.Domain\AuthServer.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+		<PackageReference Include="DotNetCore.CAP" Version="6.2.1" />
+		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+	</ItemGroup>
+
+</Project>

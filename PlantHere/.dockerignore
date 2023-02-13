@@ -1,0 +1,6 @@
+**/.dockerignore
+**/Dockerfile*
+**/obj
+**/bin
+LICENSE
+README.md
