@@ -58,11 +58,11 @@ export default function ProductCard(props) {
     }
 
     if (isSelectedDotnetApi) {
-      await axiosPrivateDotNet.post('/BasketItem', body)
+      await axiosPrivateDotNet.post('/basket-items', body)
       dispatch(FetchBasket(axiosPrivateDotNet))
     }
     else {
-      await axiosPrivateNodeJs.post('/BasketItem', body)
+      await axiosPrivateNodeJs.post('/basket-items', body)
       dispatch(FetchBasket(axiosPrivateNodeJs))
     }
   }

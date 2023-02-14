@@ -14,6 +14,7 @@ using System.Net;
 
 namespace PlantHere.WebAPI.Controllers
 {
+    [Route("products")]
     public class ProductController : CustomBaseController
     {
         private readonly IMediator _mediator;
@@ -40,7 +41,7 @@ namespace PlantHere.WebAPI.Controllers
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
         [AllowAnonymous]
-        [HttpGet("[action]/{page}/{pageSize}")]
+        [HttpGet("{page}/{pageSize}")]
         public async Task<CustomResult<IEnumerable<GetProductsByPageQueryResult>>> GetProductsByPage(int page, int pageSize)
         {
             return CustomResult<IEnumerable<GetProductsByPageQueryResult>>.Success((int)HttpStatusCode.OK, await _mediator.Send(new GetProductsByPageQuery(page, pageSize)));
@@ -50,7 +51,7 @@ namespace PlantHere.WebAPI.Controllers
         /// Get Products Count
         /// </summary>
         [AllowAnonymous]
-        [HttpGet("[action]")]
+        [HttpGet("count")]
         public async Task<CustomResult<GetProductsCountQueryResult>> GetProductsCount()
         {
             return CustomResult<GetProductsCountQueryResult>.Success((int)HttpStatusCode.OK, await _mediator.Send(new GetProductsCountQuery()));
@@ -84,7 +85,7 @@ namespace PlantHere.WebAPI.Controllers
         /// </summary>
         /// <param name="keyword"></param>
         [AllowAnonymous]
-        [HttpGet("[action]/{keyword}")]
+        [HttpGet("elastic-search/{keyword}")]
         public async Task<CustomResult<List<GetProductsESQueryResult>>> GetProductsES(string keyword)
         {
             var products = await _mediator.Send(new GetProductsESQuery(keyword));
@@ -95,7 +96,7 @@ namespace PlantHere.WebAPI.Controllers
         /// Create Products Index ES
         /// </summary>
         [AllowAnonymous]
-        [HttpGet("[action]")]
+        [HttpGet("elastic-search-index")]
         public async Task<CustomResult<CreateProductsIndexESCommandResult>> CreateProductsIndexES()
         {
             return CustomResult<CreateProductsIndexESCommandResult>.Success((int)HttpStatusCode.OK, await _mediator.Send(new CreateProductsIndexESCommand()));

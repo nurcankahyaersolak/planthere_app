@@ -69,7 +69,7 @@ export default function BuyBasket() {
             payment: valuePaymentChild,
         }
         
-        await axiosPrivate.post('/Basket/BuyBasket',body)
+        await axiosPrivate.post('/baskets/buy',body)
         dispatch(FetchBasket(axiosPrivate));    
         return true
     };

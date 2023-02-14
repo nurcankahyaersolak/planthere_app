@@ -3,10 +3,10 @@
 
 
 ###
-GET {{BaseUrl}}Category
+GET {{BaseUrl}}categories
 
 ###
-GET {{BaseUrl}}Category/4
+GET {{BaseUrl}}categories/4
 Content-Type: application/json
 
 {
@@ -14,7 +14,7 @@ Content-Type: application/json
 }
 
 ###
-POST  {{BaseUrl}}Category
+POST  {{BaseUrl}}categories
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjZjYTQ1MDg3LTBhMDctNGM3Mi1iNDhlLWNkNTc4Y2M1Y2Q1YiIsImVtYWlsIjoiY3VzdG9tZXJAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6ImN1c3RvbWVyIiwianRpIjoiOTVkMmFlOWQtOTYwZS00OWI5LWE5ZjItOTkxYTNkNWUyMTYzIiwiYXVkIjpbInd3dy5wbGFudGhlcmUuY29tIiwid3d3LnRyYWRlLmNvbSJdLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJzdXBlcmFkbWluIiwibmJmIjoxNjc0NjMwMjg0LCJleHAiOjE2NzUyMzAyODQsImlzcyI6Ind3dy5hdXRoc2VydmVyLmNvbSJ9.xOmdtaKBDd2mzZ5GAYPu0EdSDoc4eWmJX-ji6lRq8Qo
 Content-Type: application/json
 
@@ -24,19 +24,19 @@ Content-Type: application/json
 }
 
 ###
-PUT   {{BaseUrl}}Category
+PUT   {{BaseUrl}}categories
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjZjYTQ1MDg3LTBhMDctNGM3Mi1iNDhlLWNkNTc4Y2M1Y2Q1YiIsImVtYWlsIjoiY3VzdG9tZXJAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6ImN1c3RvbWVyIiwianRpIjoiOTVkMmFlOWQtOTYwZS00OWI5LWE5ZjItOTkxYTNkNWUyMTYzIiwiYXVkIjpbInd3dy5wbGFudGhlcmUuY29tIiwid3d3LnRyYWRlLmNvbSJdLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJzdXBlcmFkbWluIiwibmJmIjoxNjc0NjMwMjg0LCJleHAiOjE2NzUyMzAyODQsImlzcyI6Ind3dy5hdXRoc2VydmVyLmNvbSJ9.xOmdtaKBDd2mzZ5GAYPu0EdSDoc4eWmJX-ji6lRq8Qo
 Content-Type: application/json
 
 {
     "id" : 4,
-    "nameTr" :"Salon Biddddddtkisi",
+    "nameTr" :"Salon Bitkisi",
     "nameEn" : "Hall Plant"
 }
 
 
 ###
-DELETE {{BaseUrl}}Category
+DELETE {{BaseUrl}}categories
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjZjYTQ1MDg3LTBhMDctNGM3Mi1iNDhlLWNkNTc4Y2M1Y2Q1YiIsImVtYWlsIjoiY3VzdG9tZXJAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6ImN1c3RvbWVyIiwianRpIjoiOTVkMmFlOWQtOTYwZS00OWI5LWE5ZjItOTkxYTNkNWUyMTYzIiwiYXVkIjpbInd3dy5wbGFudGhlcmUuY29tIiwid3d3LnRyYWRlLmNvbSJdLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJzdXBlcmFkbWluIiwibmJmIjoxNjc0NjMwMjg0LCJleHAiOjE2NzUyMzAyODQsImlzcyI6Ind3dy5hdXRoc2VydmVyLmNvbSJ9.xOmdtaKBDd2mzZ5GAYPu0EdSDoc4eWmJX-ji6lRq8Qo
 Content-Type: application/json
 

@@ -8,9 +8,9 @@ const setRole = require('./SetRole')
 
 
 router.get('/', AsyncHandler(productController.getProducts))
-router.get('/GetProductsByPage/:page/:pageSize', AsyncHandler(productController.getProductsByPage))
-router.get('/ByCategory/:categoryId', AsyncHandler(productController.getProductsByCategoryIdAndPage))
-router.get('/GetProductsCount', AsyncHandler(productController.getProductsCount))
+router.get('/:page/:pageSize', AsyncHandler(productController.getProductsByPage))
+router.get('/category/:categoryId', AsyncHandler(productController.getProductsByCategoryIdAndPage))
+router.get('/count', AsyncHandler(productController.getProductsCount))
 router.get('/:id', AsyncHandler(productController.getProductById))
 
 router.post('',setRole(["seller","superadmin"]),[AuthenticationMiddleware,AuthorizationMiddleware], AsyncHandler(productController.createProduct))

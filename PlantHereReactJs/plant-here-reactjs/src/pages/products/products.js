@@ -32,12 +32,12 @@ const Products = () => {
 
     useEffect(() => {
         const fetchProductsCount = async () => {
-            const response = await axiosPrivate.get('/Product/GetProductsCount')
+            const response = await axiosPrivate.get('/products/count')
             return response.data.data
         }
 
         const fetchDataProducts = async () => {
-            const response = await axiosPrivate.get(`/Product/GetProductsByPage/${page}/${pageSize}`)
+            const response = await axiosPrivate.get(`/products/${page}/${pageSize}`)
             return response.data.data
         }
 

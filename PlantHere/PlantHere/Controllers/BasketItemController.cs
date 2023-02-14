@@ -10,6 +10,7 @@ using System.Security.Claims;
 
 namespace PlantHere.WebAPI.Controllers
 {
+    [Route("basket-items")]
     public class BasketItemController : CustomBaseController
     {
         private readonly IMediator _mediator;

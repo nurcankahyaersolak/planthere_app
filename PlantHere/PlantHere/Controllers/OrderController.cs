@@ -12,7 +12,7 @@ using System.Security.Claims;
 
 namespace PlantHere.WebAPI.Controllers
 {
-
+    [Route("orders")]
     public class OrderController : CustomBaseController
     {
         private readonly IMediator _mediator;
@@ -24,22 +24,10 @@ namespace PlantHere.WebAPI.Controllers
 
 
         /// <summary>
-        /// Get Order By Id 
-        /// </summary>
-        /// <param name="id"></param>
-        [Authorize(Roles = "superadmin")]
-        [HttpGet("{id}")]
-        public async Task<CustomResult<GetOrderByIdQueryResult>> GetOrderById(int id)
-        {
-            var order = await _mediator.Send(new GetOrderByIdQuery(id));
-            return CustomResult<GetOrderByIdQueryResult>.Success((int)HttpStatusCode.OK, order);
-        }
-
-        /// <summary>
         /// Get Order By User Id
         /// </summary>
         [Authorize(Roles = "customer,superadmin")]
-        [HttpGet("[action]")]
+        [HttpGet]
         public async Task<CustomResult<ICollection<GetOrderByUserIdQueryResult>>> GetOrderByUserId()
         {
             var userId = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;

@@ -57,7 +57,7 @@ export function ToolBarButton() {
   // State
   const [open, setOpen] = useState(false);
   const [keyword, setKeyword] = useState();
-  const [products] = useFetchForEs(`/Product/GetProductsES/${keyword}`)
+  const [products] = useFetchForEs(`/products/elastic-search/${keyword}`)
 
   const { basketItemsCount } = useSelector(state => state.basket);
   const { auth } = useSelector(state => state.user)

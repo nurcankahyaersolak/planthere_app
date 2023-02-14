@@ -11,6 +11,7 @@ using System.Net;
 
 namespace PlantHere.WebAPI.Controllers
 {
+    [Route("categories")]
     public class CategoryController : CustomBaseController
     {
 

@@ -167,7 +167,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "http://localhost:5000/Category"
+								"url": "http://localhost:5000/categories"
 							},
 							"response": []
 						},
@@ -242,7 +242,7 @@
 										}
 									}
 								},
-								"url": "http://localhost:5000/Category"
+								"url": "http://localhost:5000/categories"
 							},
 							"response": []
 						}
@@ -359,7 +359,24 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": "http://localhost:5000/Product/GetProductsCount"
+								"url": "http://localhost:5000/products/count"
+							},
+							"response": []
+						},
+						{
+							"name": "GetProductsES",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "CreateProductsIndexES",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:5000/products/CreateProductsIndexES"
 							},
 							"response": []
 						}
@@ -392,7 +409,7 @@
 										}
 									}
 								},
-								"url": "http://localhost:5000/Basket"
+								"url": "http://localhost:5000/baskets"
 							},
 							"response": []
 						},
@@ -417,7 +434,7 @@
 										}
 									}
 								},
-								"url": "http://localhost:5000/Basket"
+								"url": "http://localhost:5000/baskets"
 							},
 							"response": []
 						},
@@ -442,7 +459,7 @@
 										}
 									}
 								},
-								"url": "http://localhost:5000/Basket/BuyBasket"
+								"url": "http://localhost:5000/baskets/buy"
 							},
 							"response": []
 						}
@@ -472,7 +489,7 @@
 										}
 									}
 								},
-								"url": "http://localhost:5000/BasketItem"
+								"url": "http://localhost:5000/basket-items"
 							},
 							"response": []
 						},
@@ -547,7 +564,7 @@
 										}
 									}
 								},
-								"url": "http://localhost:5000/BasketItem"
+								"url": "http://localhost:5000/basket-items"
 							},
 							"response": []
 						}
@@ -568,7 +585,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "http://localhost:5000/Order/GetOrderByUserId"
+								"url": "http://localhost:5000/orders"
 							},
 							"response": []
 						},
@@ -584,19 +601,11 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "http://localhost:4000/Order/GetOrderByUserId"
+								"url": "http://localhost:4000/orders"
 							},
 							"response": []
 						}
 					]
-				},
-				{
-					"name": "New Request",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
 				}
 			]
 		}

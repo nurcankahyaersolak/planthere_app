@@ -4,7 +4,7 @@ const config = {
     },
     connection: {
         client:"mssql",
-        server:"planthere_db",
+		server:"planthere_db",
         user:"sa",
         password:"password123.",
         database:"planthere"

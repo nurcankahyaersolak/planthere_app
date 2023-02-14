@@ -31,11 +31,11 @@ app.use(cors())
 
 
 // Router
-app.use('/product', productRouter)
-app.use('/category', categoryRouter)
-app.use('/basket', basketRouter)
-app.use('/basketItem', basketItemRouter)
-app.use('/order', orderRouter)
+app.use('/products', productRouter)
+app.use('/categories', categoryRouter)
+app.use('/baskets', basketRouter)
+app.use('/basket-items', basketItemRouter)
+app.use('/orders', orderRouter)
 
 //Swagger Integration
 var swaggerUi = require('swagger-ui-express');

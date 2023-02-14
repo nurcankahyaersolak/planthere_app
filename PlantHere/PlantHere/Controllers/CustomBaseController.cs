@@ -5,7 +5,6 @@ using PlantHere.WebAPI.CustomResults;
 namespace PlantHere.WebAPI.Controllers
 {
     [Authorize]
-    [Route("[controller]")]
     [ApiController]
     public class CustomBaseController : Controller
     {

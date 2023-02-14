@@ -7,6 +7,6 @@ const AuthorizationMiddleware = require('../../../Core/PlantHere.Aplication/Midd
 const setRole = require('./SetRole')
 
 router.get('/',setRole(["customer"]),[AuthenticationMiddleware,AuthorizationMiddleware], AsyncHandler(basketController.getBasketByUserId))
-router.post('/BuyBasket',setRole(["customer","superadmin"]),[AuthenticationMiddleware,AuthorizationMiddleware], AsyncHandler(basketController.buyBasket))
+router.post('/buy',setRole(["customer","superadmin"]),[AuthenticationMiddleware,AuthorizationMiddleware], AsyncHandler(basketController.buyBasket))
 
 module.exports = router;

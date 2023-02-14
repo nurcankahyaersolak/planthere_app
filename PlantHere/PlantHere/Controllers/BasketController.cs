@@ -12,6 +12,7 @@ using System.Security.Claims;
 
 namespace PlantHere.WebAPI.Controllers
 {
+    [Route("baskets")]
     public class BasketController : CustomBaseController
     {
         private readonly IMediator _mediator;
@@ -49,7 +50,7 @@ namespace PlantHere.WebAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [Authorize(Roles = "customer,superadmin")]
-        [HttpPost("[Action]")]
+        [HttpPost("buy")]
         public async Task<CustomResult<BuyBasketCommandResult>> BuyBasket(BuyBasketCommand command)
         {
             command.UserId = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;

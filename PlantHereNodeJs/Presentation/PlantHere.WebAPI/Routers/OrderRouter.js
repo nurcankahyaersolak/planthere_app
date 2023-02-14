@@ -6,6 +6,6 @@ const AuthenticationMiddleware = require('../../../Core/PlantHere.Aplication/Mid
 const AuthorizationMiddleware = require('../../../Core/PlantHere.Aplication/Middlewares/AuthorizationMiddleware')
 const setRole = require('./SetRole')
 
-router.get('/GetOrderByUserId',setRole(["superadmin","customer"]),[AuthenticationMiddleware,AuthorizationMiddleware],AsyncHandler(OrderController.getOrdersByUserId))
+router.get('/',setRole(["superadmin","customer"]),[AuthenticationMiddleware,AuthorizationMiddleware],AsyncHandler(OrderController.getOrdersByUserId))
 
 module.exports = router;

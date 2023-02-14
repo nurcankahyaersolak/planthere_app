@@ -132,11 +132,11 @@ export default function Basket() {
 
     const deleteProductItem = async () => {
         if (isSelectedDotnetApi) {
-            await axiosPrivateDotNet.delete('/BasketItem', { data: { productId } })
+            await axiosPrivateDotNet.delete('/basket-items', { data: { productId } })
             dispatch(FetchBasket(axiosPrivateDotNet))
         }
         else {
-            await axiosPrivateNodeJs.delete('/BasketItem', { data: { productId } })
+            await axiosPrivateNodeJs.delete('/basket-items', { data: { productId } })
             dispatch(FetchBasket(axiosPrivateNodeJs))
         }
         handleClose()

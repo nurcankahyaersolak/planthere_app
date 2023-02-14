@@ -52,7 +52,7 @@ const ProductDetail = () => {
 
     useEffect(() => {
         const fetchDataProduct = async () => {
-            const response = await axiosPrivate.get(`/Product/${params.id}`)
+            const response = await axiosPrivate.get(`/products/${params.id}`)
             return response.data.data
         }
         fetchDataProduct().then(data => {
@@ -79,11 +79,11 @@ const ProductDetail = () => {
         }
 
         if (isSelectedDotnetApi) {
-            await axiosPrivateDotNet.post('/BasketItem', body)
+            await axiosPrivateDotNet.post('/basket-items', body)
             dispatch(FetchBasket(axiosPrivateDotNet))
         }
         else {
-            await axiosPrivateNodeJs.post('/BasketItem', body)
+            await axiosPrivateNodeJs.post('/basket-items', body)
             dispatch(FetchBasket(axiosPrivateNodeJs))
         }
     }

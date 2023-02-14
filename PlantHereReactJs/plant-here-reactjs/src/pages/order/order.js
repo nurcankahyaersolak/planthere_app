@@ -106,7 +106,7 @@ function Row(props) {
 
 export default function Order() {
     
-    const [data] = useFetch('/Order/GetOrderByUserId')
+    const [data] = useFetch('/orders')
 
     return (<Cointeiner sx={{ mt: 12, p: 1 }} direction="row">
         <Card>

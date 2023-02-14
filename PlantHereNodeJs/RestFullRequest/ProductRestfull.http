@@ -1,26 +1,15 @@
-@BaseUrl = http://localhost:4000/
-@BaseUrlDotNet  = http://localhost:5000/
+@BaseUrl = http://localhost:4000/products
+###
+GET {{BaseUrl}}/2/12
 
 ###
-GET {{BaseUrl}}Product/GetProductsByPage/2/12
+GET  {{BaseUrl}}/count
 
 ###
-GET  {{BaseUrl}}Product/GetProductsCount
+GET {{BaseUrl}}/605ad9d5-48fa-48b2-b10c-2d11083a4fe7_2023012009183940
 
 ###
-GET {{BaseUrl}}Product/ByCategory/2
-Content-Type: application/json
-
-{
-    "page" :1,
-    "pageSize" :14
-}
-
-###
-GET {{BaseUrl}}Product/605ad9d5-48fa-48b2-b10c-2d11083a4fe7_2023012009183940
-
-###
-POST  {{BaseUrl}}Product
+POST  {{BaseUrl}}
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjZjYTQ1MDg3LTBhMDctNGM3Mi1iNDhlLWNkNTc4Y2M1Y2Q1YiIsImVtYWlsIjoiY3VzdG9tZXJAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6ImN1c3RvbWVyIiwianRpIjoiOTVkMmFlOWQtOTYwZS00OWI5LWE5ZjItOTkxYTNkNWUyMTYzIiwiYXVkIjpbInd3dy5wbGFudGhlcmUuY29tIiwid3d3LnRyYWRlLmNvbSJdLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJzdXBlcmFkbWluIiwibmJmIjoxNjc0NjMwMjg0LCJleHAiOjE2NzUyMzAyODQsImlzcyI6Ind3dy5hdXRoc2VydmVyLmNvbSJ9.xOmdtaKBDd2mzZ5GAYPu0EdSDoc4eWmJX-ji6lRq8Qo
 Content-Type: application/json
 
@@ -35,7 +24,7 @@ Content-Type: application/json
 }
 
 ###
-PUT   {{BaseUrl}}Product
+PUT   {{BaseUrl}}
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjZjYTQ1MDg3LTBhMDctNGM3Mi1iNDhlLWNkNTc4Y2M1Y2Q1YiIsImVtYWlsIjoiY3VzdG9tZXJAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6ImN1c3RvbWVyIiwianRpIjoiOTVkMmFlOWQtOTYwZS00OWI5LWE5ZjItOTkxYTNkNWUyMTYzIiwiYXVkIjpbInd3dy5wbGFudGhlcmUuY29tIiwid3d3LnRyYWRlLmNvbSJdLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJzdXBlcmFkbWluIiwibmJmIjoxNjc0NjMwMjg0LCJleHAiOjE2NzUyMzAyODQsImlzcyI6Ind3dy5hdXRoc2VydmVyLmNvbSJ9.xOmdtaKBDd2mzZ5GAYPu0EdSDoc4eWmJX-ji6lRq8Qo
 Content-Type: application/json
 
@@ -53,7 +42,7 @@ Content-Type: application/json
 
 
 ###
-DELETE {{BaseUrl}}Product/ee78fba5-6d28-81a8-0744-c108aa05bb80_202312513274512
+DELETE {{BaseUrl}}/ee78fba5-6d28-81a8-0744-c108aa05bb80_202312513274512
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjZjYTQ1MDg3LTBhMDctNGM3Mi1iNDhlLWNkNTc4Y2M1Y2Q1YiIsImVtYWlsIjoiY3VzdG9tZXJAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6ImN1c3RvbWVyIiwianRpIjoiOTVkMmFlOWQtOTYwZS00OWI5LWE5ZjItOTkxYTNkNWUyMTYzIiwiYXVkIjpbInd3dy5wbGFudGhlcmUuY29tIiwid3d3LnRyYWRlLmNvbSJdLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJzdXBlcmFkbWluIiwibmJmIjoxNjc0NjMwMjg0LCJleHAiOjE2NzUyMzAyODQsImlzcyI6Ind3dy5hdXRoc2VydmVyLmNvbSJ9.xOmdtaKBDd2mzZ5GAYPu0EdSDoc4eWmJX-ji6lRq8Qo
 Content-Type: application/json
 
