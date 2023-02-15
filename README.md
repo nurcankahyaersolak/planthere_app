@@ -17,6 +17,7 @@
 - Nodejs
 - Express
 - Sequelize
+- Swagger
 
 ## Frontend
 
@@ -32,7 +33,7 @@
 
 ## Topics cover
 
-- Onion architecture
+- Onion Architecture
 - Domain Driven Design 
 - CQRS
 - Clean Architecture

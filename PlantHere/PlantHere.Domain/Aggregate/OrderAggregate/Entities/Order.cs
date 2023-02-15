@@ -13,7 +13,7 @@ namespace PlantHere.Domain.Aggregate.OrderAggregate.Entities
 
         public string BuyerId { get; private set; }
 
-        public ICollection<OrderItem> OrderItems { get; private set;}
+        public ICollection<OrderItem> OrderItems { get; private set; }
 
         public Order()
         {

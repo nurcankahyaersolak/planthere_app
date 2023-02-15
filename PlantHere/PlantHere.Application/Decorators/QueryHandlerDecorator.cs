@@ -23,15 +23,15 @@ namespace PlantHere.Application.Decorators
 
         private bool isCacheable = false;
 
-        private TimeSpan _expiration;
+        private TimeSpan expiration;
 
-        public QueryHandlerDecorator(IRequestHandler<TRequest, TResult> decorated, IDistributedCache distributedCache,IConfiguration configuration)
+        public QueryHandlerDecorator(IRequestHandler<TRequest, TResult> decorated, IDistributedCache distributedCache, IConfiguration configuration)
         {
             _decorated = decorated;
             _distributedCache = distributedCache;
             _configuration = configuration;
             isCacheable = this._decorated.GetType().GetInterfaces().Any(x => x.Name == nameof(IQueryCacheable));
-            if (isCacheable) _expiration = GetExpiration(this._decorated); 
+            if (isCacheable) expiration = GetExpiration(this._decorated);
         }
 
         public async Task<TResult> Handle(TRequest query, CancellationToken cancellationToken)
@@ -44,7 +44,7 @@ namespace PlantHere.Application.Decorators
                 {
                     var result = await _decorated.Handle(query, cancellationToken);
                     byte[] objectToCache = JsonSerializer.SerializeToUtf8Bytes(result);
-                    await _distributedCache.SetAsync(cacheKey, objectToCache, new DistributedCacheEntryOptions().SetSlidingExpiration(_expiration));
+                    await _distributedCache.SetAsync(cacheKey, objectToCache, new DistributedCacheEntryOptions().SetSlidingExpiration(expiration));
                     value = await _distributedCache.GetAsync(cacheKey);
                 }
 
@@ -116,14 +116,14 @@ namespace PlantHere.Application.Decorators
         public TimeSpan GetExpiration(object obj)
         {
             var redisCongfiguration = _configuration.GetSection(nameof(RedisConfiguration)).Get<RedisConfiguration>();
-            _expiration = TimeSpan.FromSeconds(redisCongfiguration.Expiration);
-            
+            expiration = TimeSpan.FromSeconds(redisCongfiguration.Expiration);
+
             if (obj.GetType().GetProperties() != null)
             {
-                var value =  obj.GetType().GetProperties().FirstOrDefault(x => x.Name == "Expiration")?.GetValue(obj);
-                if (value != null) _expiration = (TimeSpan)value;
+                var value = obj.GetType().GetProperties().FirstOrDefault(x => x.Name == "Expiration")?.GetValue(obj);
+                if (value != null) expiration = (TimeSpan)value;
             }
-            return _expiration;
+            return expiration;
         }
     }
 }

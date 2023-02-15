@@ -20,11 +20,13 @@ namespace PlantHere.Application.CQRS.Basket.Commands.CreateBasket
 
         public async Task<CreateBasketCommandResult> Handle(CreateBasketCommand request, CancellationToken cancellationToken)
         {
-            var basket = await _unitOfWork.GetGenericRepository<ModelBasket>().Where(x => x.UserId == request.UserId).FirstOrDefaultAsync();
+            var basketRepository = _unitOfWork.GetGenericRepository<ModelBasket>();
+            
+            var basket = await basketRepository.Where(x => x.UserId == request.UserId).FirstOrDefaultAsync();
 
             if (basket != null) throw new ConflictException($"{typeof(ModelBasket).Name}({request.UserId}) Conflict");
 
-            await _unitOfWork.GetGenericRepository<ModelBasket>().AddAsync(_mapper.Map<ModelBasket>(request));
+            await basketRepository.AddAsync(_mapper.Map<ModelBasket>(request));
 
             return new CreateBasketCommandResult();
         }

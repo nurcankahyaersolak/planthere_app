@@ -1,14 +1,14 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using System.Net;
+using MediatR;
+using PlantHere.WebAPI.CustomResults;
 using PlantHere.Application.CQRS.Order.Commands.CreateOrder;
 using PlantHere.Application.CQRS.Order.Commands.UpdateOrder;
 using PlantHere.Application.CQRS.Order.Quries.GetOrderById;
 using PlantHere.Application.CQRS.Order.Quries.GetOrderByUserId;
 using PlantHere.Application.CQRS.Product.Commands.DeleteProduct;
-using PlantHere.WebAPI.CustomResults;
-using System.Net;
-using System.Security.Claims;
 
 namespace PlantHere.WebAPI.Controllers
 {

@@ -34,29 +34,30 @@ namespace PlantHere.Application.CQRS.Basket.Commands.BuyBasket
 
             if (_paymentService.ReceiverPayment(request.Payment.CardTypeId, request.Payment.CardNumber, request.Payment.CardSecurityNumber, request.Payment.CardHolderName))
             {
-                var basket = await _unitOfWork.GetGenericRepository<ModelBasket>().Where(x => x.UserId == request.UserId).Include(x => x.BasketItems).FirstOrDefaultAsync();
+                // Get Basket Repository
+                var basketRepository = _unitOfWork.GetGenericRepository<ModelBasket>();
+
+                // Get Basket By User Id
+                var basket = await basketRepository.Where(x => x.UserId == request.UserId).Include(x => x.BasketItems).FirstOrDefaultAsync();
 
                 if (basket == null) throw new NotFoundException($"{typeof(ModelBasket).Name}({request.UserId}) Not Found");
 
-                // Basket Item Cheak
-
+                // Basket Items Count Cheak
                 if (basket.BasketItems.Count == 0) throw new NotFoundException($"Not Found Basket Items");
 
                 // Create Order
+                var orderRepository = _unitOfWork.GetGenericRepository<ModelOrder>();
+
                 var orderItems = _mapper.Map<List<ModelOrderItem>>(basket.BasketItems);
-                var order = new ModelOrder(request.UserId, request.Address, orderItems);
 
-                await _unitOfWork.GetGenericRepository<ModelOrder>().AddAsync(order);
-
-                order.AddOrder(orderItems);
-
+                await orderRepository.AddAsync(new ModelOrder(request.UserId, request.Address, orderItems));
+   
                 // Remove Basket
-                _unitOfWork.GetGenericRepository<ModelBasket>().Remove(basket);
+                basketRepository.Remove(basket);
 
                 // Rabbit MQ Publish
                 await _capPublisher.PublishAsync<string>("buyBasket.transaction", request.UserId);
             }
-
 
             return new BuyBasketCommandResult();
         }

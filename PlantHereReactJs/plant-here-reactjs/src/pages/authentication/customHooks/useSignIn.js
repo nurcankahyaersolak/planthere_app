@@ -58,6 +58,7 @@ const useForm = (initialState = {}) => {
 
         // Navigate
         setTimeout(() => {
+            
             // Dispatch Basket
             dispatch(FetchBasket(axiosPrivateDotNet))
             navigate("/");

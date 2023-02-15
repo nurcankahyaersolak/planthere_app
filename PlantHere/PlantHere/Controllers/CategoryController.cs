@@ -2,12 +2,12 @@
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using PlantHere.WebAPI.CustomResults;
 using PlantHere.Application.CQRS.Category.Cammands.CreateCategory;
 using PlantHere.Application.CQRS.Category.Cammands.DeleteCategory;
 using PlantHere.Application.CQRS.Category.Cammands.UpdateCategory;
 using PlantHere.Application.CQRS.Category.Queries.GetCategories;
-using PlantHere.WebAPI.CustomResults;
-using System.Net;
 
 namespace PlantHere.WebAPI.Controllers
 {

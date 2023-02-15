@@ -1,6 +1,6 @@
 ﻿using Moq;
 using PlantHere.Application.Interfaces;
-using PlantHere.Domain.Aggregate.CategoryAggregate;
+using ModelCategory = PlantHere.Domain.Aggregate.CategoryAggregate.Category;
 
 namespace PlantHere.Test.Mocks
 {
@@ -11,8 +11,9 @@ namespace PlantHere.Test.Mocks
         {
             //Arrange
             var mockUow = new Mock<IUnitOfWork>();
-            var mockProductRepo = MockProductRepository.GetProductRepository();
-            mockUow.Setup(r => r.GetGenericRepository<Product>()).Returns(mockProductRepo.Object);
+            var mockProductRepo = MockCategoryRepository.GetCategoryRepository();
+            mockUow.Setup(r => r.GetGenericRepository<ModelCategory>()).Returns(mockProductRepo.Object);
+
             return mockUow;
 
         }

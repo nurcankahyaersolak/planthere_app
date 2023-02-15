@@ -16,13 +16,15 @@ namespace PlantHere.Application.CQRS.BasketItem.Commands.CreateBasketItem
 
         public async Task<CreateBasketItemCommandResult> Handle(CreateBasketItemCommand request, CancellationToken cancellationToken)
         {
-            var basket = await _unitOfWork.GetGenericRepository<ModelBasket>().Where(x => x.UserId == request.UserId).Include(x => x.BasketItems).FirstOrDefaultAsync();
+            var basketRepository = _unitOfWork.GetGenericRepository<ModelBasket>();
+            
+            var basket = await basketRepository.Where(x => x.UserId == request.UserId).Include(x => x.BasketItems).FirstOrDefaultAsync();
 
             if (basket == null)
             {
-                await _unitOfWork.GetGenericRepository<ModelBasket>().AddAsync(new ModelBasket(request.UserId));
+                await basketRepository.AddAsync(new ModelBasket(request.UserId));
                 await _unitOfWork.CommitAsync();
-                basket = await _unitOfWork.GetGenericRepository<ModelBasket>().Where(x => x.UserId == request.UserId).Include(x => x.BasketItems).FirstOrDefaultAsync();
+                basket = await basketRepository.Where(x => x.UserId == request.UserId).Include(x => x.BasketItems).FirstOrDefaultAsync();
             }
 
             basket.AddBasketItem(request.ProductId, request.ProductName, request.Price, request.DiscountedPrice);

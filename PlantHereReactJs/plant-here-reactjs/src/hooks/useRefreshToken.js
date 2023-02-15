@@ -22,6 +22,7 @@ const useRefreshToken = () => {
         const { accessToken } = response?.data?.data
         return accessToken
     }
+    
     return refresh
 }
 

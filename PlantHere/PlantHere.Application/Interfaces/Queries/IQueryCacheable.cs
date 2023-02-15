@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace PlantHere.Application.Interfaces.Queries
+﻿namespace PlantHere.Application.Interfaces.Queries
 {
     public interface IQueryCacheable
     {

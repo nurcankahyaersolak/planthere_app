@@ -20,9 +20,6 @@ const { DeleteCategoryCommandResult } = require("../../../Core/PlantHere.Aplicat
 // Db
 const db = require('../../../Infrastructure/PlantHere.Persistance/AppDbContext');
 
-// Helper
-const Guid = require("./GuidService")
-
 class CategoryService extends Interface(ICategoryService)
 {
     constructor() {

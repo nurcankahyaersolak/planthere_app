@@ -9,7 +9,6 @@ using System.Net;
 namespace AuthServer.API.Controllers
 {
     [Route("[controller]/[action]")]
-    [ApiController]
     public class AuthController : CustomBaseController
     {
         private readonly IMediator _mediator;

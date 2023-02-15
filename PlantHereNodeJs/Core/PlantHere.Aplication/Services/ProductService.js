@@ -6,26 +6,12 @@ const IProductService = require('../../../Core/PlantHere.Aplication/Interfaces/S
 const { Mapper } = require('../../../Core/PlantHere.Aplication/Mapping/ProductProfile');
 
 // RequestResponseModels
-
-// GetProductsCount
 const GetProductsCountQueryResult = require('../../../Core/PlantHere.Aplication/RequestResponseModels/Product/Queries/GetProductsCount/GetProductsCountQueryResult').GetProductsCountQueryResult
-
-// GetProductsByPage
 const GetProductsByPageQueryResult = require('../../../Core/PlantHere.Aplication/RequestResponseModels/Product/Queries/GetProductsByPage/GetProductsByPageQueryResult').GetProductsByPageQueryResult
-
-// GetProductsByCategoryIdAndPage
 const GetProductsByCategoryIdAndPageQueryResult = require('../../../Core/PlantHere.Aplication/RequestResponseModels/Product/Queries/GetProductByCategoryIdAndPage/GetProductByCategoryIdAndPageQueryResult').GetProductsByPageAndCategoryIdQueryResult
-
-// GetProductById
 const GetProductByIdQueryResult = require('../../../Core/PlantHere.Aplication/RequestResponseModels/Product/Queries/GetProductById/GetProductByIdQueryResult').GetProductByIdQueryResult
-
-// DeleteProductById
 const DeleteProductCommandResult = require('../../../Core/PlantHere.Aplication/RequestResponseModels/Product/Commands/DeleteProduct/DeleteProductCommandResult').DeleteProductCommandResult
-
-// UpdateProduct
 const UpdateProductCommandResult = require('../../../Core/PlantHere.Aplication/RequestResponseModels/Product/Commands/UpdateProduct/UpdateProductCommandResult').UpdateProductCommandResult
-
-// CreateProduct 
 const CreateProductCommandResult = require('../../../Core/PlantHere.Aplication/RequestResponseModels/Product/Commands/CreateProduct/CreateProductCommandResult').CreateProductCommandResult;
 
 const db = require('../../../Infrastructure/PlantHere.Persistance/AppDbContext');

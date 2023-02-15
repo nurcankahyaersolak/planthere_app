@@ -9,6 +9,10 @@ namespace PlantHere.Application.CQRS.Category.Cammands.CreateCategory
 
         public string? NameEn { get; set; }
 
+        public CreateCategoryCommand(string? nameTr, string? nameEn)
+        {
+            NameTr = nameTr;
+            NameEn = nameEn;
+        }
     }
-
 }

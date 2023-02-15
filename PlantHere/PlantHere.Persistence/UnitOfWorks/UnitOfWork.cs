@@ -1,6 +1,5 @@
 ﻿using PlantHere.Application.Interfaces;
 using PlantHere.Application.Interfaces.Repositories;
-using PlantHere.Domain.Common.Class;
 using PlantHere.Persistence.Repositories;
 using System.Collections.Concurrent;
 
@@ -19,7 +18,7 @@ namespace PlantHere.Persistence.UnitOfWorks
 
         public IRepository<T> GetGenericRepository<T>() where T : class, new()
         {
-         
+
             return (Repository<T>)_repositories.GetOrAdd(typeof(T).Name, t => new Repository<T>(_context)); ;
         }
 
