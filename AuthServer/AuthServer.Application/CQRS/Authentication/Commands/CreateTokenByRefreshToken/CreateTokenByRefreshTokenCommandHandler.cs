@@ -1,5 +1,4 @@
 ﻿using AuthServer.Application.Exceptions;
-using AuthServer.Application.Interfaces.Repositories;
 using AuthServer.Application.Interfaces.Services;
 using AuthServer.Application.Mapping;
 using AuthServer.Domain.Entities;

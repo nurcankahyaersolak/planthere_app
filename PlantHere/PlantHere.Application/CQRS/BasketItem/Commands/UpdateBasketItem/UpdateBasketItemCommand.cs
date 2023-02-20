@@ -9,5 +9,12 @@ namespace PlantHere.Application.CQRS.BasketItem.Commands.UpdateBasketItem
         public string? UserId { get; set; }
 
         public int Count { get; set; }
+
+        public UpdateBasketItemCommand(string productId, string? userId, int count)
+        {
+            ProductId = productId;
+            UserId = userId;
+            Count = count;
+        }
     }
 }

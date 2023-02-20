@@ -19,6 +19,7 @@ namespace PlantHere.Test.Category.Commands
         public CreateCategoryCommandHandlerTests()
         {
             //Arrange
+
             _mockUow = MockUnitOfWork.GetUnitOfWork();
             var mapperConfig = new MapperConfiguration(c =>
             {

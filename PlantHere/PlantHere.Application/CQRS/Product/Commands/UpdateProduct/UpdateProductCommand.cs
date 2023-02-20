@@ -19,5 +19,15 @@ namespace PlantHere.Application.CQRS.Product.Commands.UpdateProduct
 
         public int CategoryId { get; set; }
 
+        public UpdateProductCommand(int id, string? name, string? description, int stock, int price, int discount, int categoryId)
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+            Stock = stock;
+            Price = price;
+            Discount = discount;
+            CategoryId = categoryId;
+        }
     }
 }

@@ -9,5 +9,12 @@ namespace PlantHere.Application.CQRS.Category.Cammands.UpdateCategory
         public string NameTr { get; set; }
 
         public string NameEn { get; set; }
+
+        public UpdateCategoryCommand(int id, string nameTr, string nameEn)
+        {
+            Id = id;
+            NameTr = nameTr;
+            NameEn = nameEn;
+        }
     }
 }

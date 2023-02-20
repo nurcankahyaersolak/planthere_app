@@ -6,7 +6,7 @@ namespace PlantHere.Application.CQRS.BasketItem.Commands.CreateBasketItem
     {
         public string ProductId { get; set; }
 
-        public string? UserId { get; set; }
+        public string UserId { get; set; }
 
         public string ProductName { get; set; }
 
@@ -14,5 +14,13 @@ namespace PlantHere.Application.CQRS.BasketItem.Commands.CreateBasketItem
 
         public decimal DiscountedPrice { get; set; }
 
+        public CreateBasketItemCommand(string productId, string userId, string productName, decimal price, decimal discountedPrice)
+        {
+            ProductId = productId;
+            UserId = userId;
+            ProductName = productName;
+            Price = price;
+            DiscountedPrice = discountedPrice;
+        }
     }
 }

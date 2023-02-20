@@ -1,9 +1,6 @@
 ﻿using AuthServer.API.CustomResponses;
-using AuthServer.API.Middlewares;
 using AuthServer.Application.Exceptions;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Http;
 using System.Net;
 using System.Text.Json;
 

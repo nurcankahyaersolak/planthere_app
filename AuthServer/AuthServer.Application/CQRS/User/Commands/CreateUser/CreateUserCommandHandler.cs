@@ -1,12 +1,8 @@
-﻿using AuthServer.Application.Configurations;
-using AuthServer.Application.CQRS.User.Commands.CreateUserRoles;
-using AuthServer.Application.Exceptions;
-using AuthServer.Application.Interfaces.Repositories;
+﻿using AuthServer.Application.Exceptions;
 using AuthServer.Application.Mapping;
 using DotNetCore.CAP;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Configuration;
 using UdemyAuthServer.Core.UnitOfWork;
 using ModelUser = AuthServer.Domain.Entities.User;
 
@@ -32,7 +28,7 @@ namespace AuthServer.Application.CQRS.User.Commands.CreateUser
 
         public async Task<CreateUserCommandResponse> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            
+
             var user = new ModelUser
             {
                 UserName = request.UserName,

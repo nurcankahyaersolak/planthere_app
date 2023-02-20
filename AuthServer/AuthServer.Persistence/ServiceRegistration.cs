@@ -39,7 +39,7 @@ namespace AuthServer.Persistence
                 {
                     options.ConnectionFactoryOptions = options =>
                     {
-                        
+
                         options.Ssl.Enabled = false;
                         options.HostName = rabbitMQConfiguration.HostName;
                         options.UserName = rabbitMQConfiguration.UserName;

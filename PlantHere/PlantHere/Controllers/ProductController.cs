@@ -1,8 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
-using PlantHere.WebAPI.CustomResults;
 using PlantHere.Application.CQRS.Product.Commands.CreateProduct;
 using PlantHere.Application.CQRS.Product.Commands.CreateProductsIndexES;
 using PlantHere.Application.CQRS.Product.Commands.DeleteProduct;
@@ -11,6 +9,9 @@ using PlantHere.Application.CQRS.Product.Queries.GetProductByUniqueId;
 using PlantHere.Application.CQRS.Product.Queries.GetProductsByPage;
 using PlantHere.Application.CQRS.Product.Queries.GetProductsCount;
 using PlantHere.Application.CQRS.Product.Queries.GetProductsES;
+using PlantHere.Application.Requests.Products;
+using PlantHere.WebAPI.CustomResults;
+using System.Net;
 
 namespace PlantHere.WebAPI.Controllers
 {
@@ -60,11 +61,12 @@ namespace PlantHere.WebAPI.Controllers
         /// <summary>
         /// Update Product
         /// </summary>
-        /// <param name="command"></param>
+        /// <param name="updateProductRequest"></param>
         [Authorize(Roles = "superadmin,seller")]
         [HttpPut]
-        public async Task<CustomResult<GetProductByUniqueIdQueryResult>> UpdateProduct(UpdateProductCommand command)
+        public async Task<CustomResult<GetProductByUniqueIdQueryResult>> UpdateProduct(UpdateProductRequest updateProductRequest)
         {
+            var command = new UpdateProductCommand(updateProductRequest.Id, updateProductRequest.Name, updateProductRequest.Description, updateProductRequest.Stock, updateProductRequest.Price, updateProductRequest.Discount, updateProductRequest.CategoryId);
             await _mediator.Send(command);
             return CustomResult<GetProductByUniqueIdQueryResult>.Success((int)HttpStatusCode.NoContent);
         }
@@ -72,11 +74,12 @@ namespace PlantHere.WebAPI.Controllers
         /// <summary>
         /// Create Product
         /// </summary>
-        /// <param name="command"></param>
+        /// <param name="createProductRequest"></param>
         [Authorize(Roles = "superadmin,seller")]
         [HttpPost]
-        public async Task<CustomResult<CreateProductCommandResult>> CreateProduct(CreateProductCommand command)
+        public async Task<CustomResult<CreateProductCommandResult>> CreateProduct(CreateProductRequest createProductRequest)
         {
+            var command = new CreateProductCommand(createProductRequest.Name, createProductRequest.Description, createProductRequest.Stock, createProductRequest.Price, createProductRequest.Discount, createProductRequest.CategoryId, createProductRequest.SellerId);
             return CustomResult<CreateProductCommandResult>.Success((int)HttpStatusCode.OK, await _mediator.Send(command));
         }
 

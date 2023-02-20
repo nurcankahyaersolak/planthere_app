@@ -1,7 +1,8 @@
-﻿using AuthServer.Application.CQRS.User.Commands.CreateUser;
+﻿using AuthServer.API.CustomResponses;
+using AuthServer.Application.CQRS.User.Commands.CreateUser;
 using AuthServer.Application.CQRS.User.Commands.CreateUserRoles;
 using AuthServer.Application.CQRS.User.Queries.GetUserByName;
-using AuthServer.API.CustomResponses;
+using AuthServer.Application.Requests.Users;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -10,25 +11,13 @@ using System.Net;
 namespace AuthServer.API.Controllers
 {
     [Route("[controller]")]
-    [ApiController]
     public class UserController : CustomBaseController
     {
         private readonly IMediator _mediator;
 
         public UserController(IMediator mediator)
         {
-            _mediator = mediator;
-        }
-        
-        /// <summary>
-        /// Create User
-        /// </summary>
-        /// <param name="createUserCommand"></param>
-        [HttpPost]
-        public async Task<CustomResponse<CreateUserCommandResponse>> CreateUser(CreateUserCommand createUserCommand)
-        {
-            var result = await _mediator.Send(createUserCommand);
-            return CustomResponse<CreateUserCommandResponse>.Success(result, (int)HttpStatusCode.Created);
+            _mediator = mediator; 
         }
 
         /// <summary>
@@ -43,14 +32,28 @@ namespace AuthServer.API.Controllers
         }
 
         /// <summary>
+        /// Create User
+        /// </summary>
+        /// <param name="createUserRequest"></param>
+        [HttpPost]
+        public async Task<CustomResponse<CreateUserCommandResponse>> CreateUser(CreateUserRequest createUserRequest)
+        {
+            var command = new CreateUserCommand(createUserRequest.UserName,createUserRequest.Password,createUserRequest.Email);
+            var result = await _mediator.Send(command);
+            
+            return CustomResponse<CreateUserCommandResponse>.Success(result, (int)HttpStatusCode.Created);
+        }
+
+        /// <summary>
         /// Create User Roles
         /// </summary>
-        /// <param name="createUserRolesCommand"></param>
+        /// <param name="createUserRolesRequest"></param>
         [Authorize(Roles = "superadmin")]
         [HttpPost("[action]")]
-        public async Task<CustomResponse<CreateUserRolesCommandResponse>> CreateUserRoles(CreateUserRolesCommand createUserRolesCommand)
+        public async Task<CustomResponse<CreateUserRolesCommandResponse>> CreateUserRoles(CreateUserRolesRequest createUserRolesRequest)
         {
-            return CustomResponse<CreateUserRolesCommandResponse>.Success(await _mediator.Send(createUserRolesCommand), (int)HttpStatusCode.Created);
+            var command = new CreateUserRolesCommand(createUserRolesRequest.Email, createUserRolesRequest.Roles);
+            return CustomResponse<CreateUserRolesCommandResponse>.Success(await _mediator.Send(command), (int)HttpStatusCode.Created);
         }
     }
 }

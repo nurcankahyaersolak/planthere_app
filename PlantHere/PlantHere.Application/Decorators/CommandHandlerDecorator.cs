@@ -40,7 +40,10 @@ namespace PlantHere.Application.Decorators
                 var modelName = command.GetType().FullName?.GetModelName();
                 if (!string.IsNullOrWhiteSpace(modelName)) RemoveCache(_configuration.GetRedisKeysByModelName(modelName));
             }
+
             await _unitOfWork.CommitAsync();
+
+            _unitOfWork.Dispose();
 
             return result;
         }

@@ -17,5 +17,16 @@ namespace PlantHere.Application.CQRS.Product.Commands.CreateProduct
         public int CategoryId { get; set; }
 
         public string SellerId { get; set; }
+
+        public CreateProductCommand(string? name, string? description, int stock, int price, int discount, int categoryId, string sellerId)
+        {
+            Name = name;
+            Description = description;
+            Stock = stock;
+            Price = price;
+            Discount = discount;
+            CategoryId = categoryId;
+            SellerId = sellerId;
+        }
     }
 }

@@ -1,14 +1,14 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
-using System.Net;
-using MediatR;
-using PlantHere.WebAPI.CustomResults;
 using PlantHere.Application.CQRS.Order.Commands.CreateOrder;
-using PlantHere.Application.CQRS.Order.Commands.UpdateOrder;
 using PlantHere.Application.CQRS.Order.Quries.GetOrderById;
 using PlantHere.Application.CQRS.Order.Quries.GetOrderByUserId;
 using PlantHere.Application.CQRS.Product.Commands.DeleteProduct;
+using PlantHere.Application.Requests.Orders;
+using PlantHere.WebAPI.CustomResults;
+using System.Net;
+using System.Security.Claims;
 
 namespace PlantHere.WebAPI.Controllers
 {
@@ -37,11 +37,12 @@ namespace PlantHere.WebAPI.Controllers
         /// <summary>
         /// Update Order
         /// </summary>
-        /// <param name="command"></param>
+        /// <param name="updateOrderRequest"></param>
         [Authorize(Roles = "superadmin")]
         [HttpPut]
-        public async Task<CustomResult<GetOrderByIdQueryResult>> UpdateOrder(UpdateOrderCommand command)
+        public async Task<CustomResult<GetOrderByIdQueryResult>> UpdateOrder(UpdateOrderRequest updateOrderRequest)
         {
+            var command = new UpdateOrderRequest(updateOrderRequest.Id, updateOrderRequest.CreatedDate, updateOrderRequest.Address, updateOrderRequest.BuyerId, updateOrderRequest.OrderItems);
             await _mediator.Send(command);
             return CustomResult<GetOrderByIdQueryResult>.Success((int)HttpStatusCode.NoContent);
         }
@@ -49,11 +50,12 @@ namespace PlantHere.WebAPI.Controllers
         /// <summary>
         /// Create Order
         /// </summary>
-        /// <param name="command"></param>
+        /// <param name="createOrderRequest"></param>
         [Authorize(Roles = "superadmin")]
         [HttpPost]
-        public async Task<CustomResult<CreateOrderCommandResult>> CreateOrder(CreateOrderCommand command)
+        public async Task<CustomResult<CreateOrderCommandResult>> CreateOrder(CreateOrderRequest createOrderRequest)
         {
+            var command = new CreateOrderCommand(createOrderRequest.CreatedDate, createOrderRequest.Address, createOrderRequest.BuyerId, createOrderRequest.OrderItems);
             return CustomResult<CreateOrderCommandResult>.Success((int)HttpStatusCode.Created, await _mediator.Send(command));
         }
 

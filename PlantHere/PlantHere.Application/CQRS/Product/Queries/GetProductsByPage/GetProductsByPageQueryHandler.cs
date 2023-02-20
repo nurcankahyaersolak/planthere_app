@@ -22,7 +22,7 @@ namespace PlantHere.Application.CQRS.Product.Queries.GetProductsByPage
 
         public async Task<IEnumerable<GetProductsByPageQueryResult>> Handle(GetProductsByPageQuery request, CancellationToken cancellationToken)
         {
-            var products = _mapper.Map<ICollection<GetProductsByPageQueryResult>>(await _unitOfWork.GetGenericRepository<ModelProduct>().GetQueryable().Include(x => x.Images).OrderBy(x => x.Id).Skip((request.Page - 1) * request.PageSize).Take(request.PageSize).ToListAsync());
+            var products = _mapper.Map<ICollection<GetProductsByPageQueryResult>>(await _unitOfWork.GetGenericRepository<ModelProduct>().GetQueryableAsNoTracking().Include(x => x.Images).OrderBy(x => x.Id).Skip((request.Page - 1) * request.PageSize).Take(request.PageSize).ToListAsync());
 
             return products;
         }

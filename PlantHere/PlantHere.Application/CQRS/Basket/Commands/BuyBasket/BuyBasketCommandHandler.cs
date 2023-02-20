@@ -51,7 +51,7 @@ namespace PlantHere.Application.CQRS.Basket.Commands.BuyBasket
                 var orderItems = _mapper.Map<List<ModelOrderItem>>(basket.BasketItems);
 
                 await orderRepository.AddAsync(new ModelOrder(request.UserId, request.Address, orderItems));
-   
+
                 // Remove Basket
                 basketRepository.Remove(basket);
 

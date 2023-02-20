@@ -14,5 +14,12 @@ namespace PlantHere.Application.CQRS.Order.Commands.CreateOrder
 
         public List<GetOrderItemsQueryResult> OrderItems { get; set; }
 
+        public CreateOrderCommand(DateTime createdDate, AddressQueryResult address, string buyerId, List<GetOrderItemsQueryResult> orderItems)
+        {
+            CreatedDate = createdDate;
+            Address = address;
+            BuyerId = buyerId;
+            OrderItems = orderItems;
+        }
     }
 }

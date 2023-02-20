@@ -21,7 +21,7 @@ namespace PlantHere.Application.CQRS.Basket.Commands.CreateBasket
         public async Task<CreateBasketCommandResult> Handle(CreateBasketCommand request, CancellationToken cancellationToken)
         {
             var basketRepository = _unitOfWork.GetGenericRepository<ModelBasket>();
-            
+
             var basket = await basketRepository.Where(x => x.UserId == request.UserId).FirstOrDefaultAsync();
 
             if (basket != null) throw new ConflictException($"{typeof(ModelBasket).Name}({request.UserId}) Conflict");

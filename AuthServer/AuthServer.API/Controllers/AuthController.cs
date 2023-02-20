@@ -1,7 +1,8 @@
-﻿using AuthServer.Application.CQRS.Authentication.Commands.RevokeRefreshToken;
+﻿using AuthServer.API.CustomResponses;
+using AuthServer.Application.CQRS.Authentication.Commands.RevokeRefreshToken;
 using AuthServer.Application.CQRS.Authentication.Queries.CreateTokenByRefreshToken;
 using AuthServer.Application.CQRS.Authentication.Queries.CreateTokenByUser;
-using AuthServer.API.CustomResponses;
+using AuthServer.Application.Requests.Authentications;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -21,11 +22,13 @@ namespace AuthServer.API.Controllers
         /// <summary>
         /// Create Token By User
         /// </summary>
-        /// <param name="createTokenByUserQuery"></param>
+        /// <param name="createTokenByUserRequest"></param>
         [HttpPost]
-        public async Task<CustomResponse<CreateTokenByUserCommandResponse>> CreateTokenByUser(CreateTokenByUserCommand createTokenByUserQuery)
+        public async Task<CustomResponse<CreateTokenByUserCommandResponse>> CreateTokenByUser(CreateTokenByUserRequest createTokenByUserRequest)
         {
-            var result = await _mediator.Send(createTokenByUserQuery);
+            var command = new CreateTokenByUserCommand(createTokenByUserRequest.Email, createTokenByUserRequest.Password);
+
+            var result = await _mediator.Send(command);
 
             return CustomResponse<CreateTokenByUserCommandResponse>.Success(result, (int)HttpStatusCode.Created);
         }
@@ -33,11 +36,13 @@ namespace AuthServer.API.Controllers
         /// <summary>
         /// Revoke Refresh Token
         /// </summary>
-        /// <param name="revokeRefreshTokenCommand"></param>
+        /// <param name="revokeRefreshTokenRequest"></param>
         [HttpPost]
-        public async Task<CustomResponse<RevokeRefreshTokenCommandResponse>> RevokeRefreshToken(RevokeRefreshTokenCommand revokeRefreshTokenCommand)
+        public async Task<CustomResponse<RevokeRefreshTokenCommandResponse>> RevokeRefreshToken(RevokeRefreshTokenRequest revokeRefreshTokenRequest)
         {
-            var result = await _mediator.Send(revokeRefreshTokenCommand);
+            var command = new RevokeRefreshTokenCommand(revokeRefreshTokenRequest.RefleshToken);
+
+            var result = await _mediator.Send(command);
 
             return CustomResponse<RevokeRefreshTokenCommandResponse>.Success(result, (int)HttpStatusCode.OK);
         }
@@ -45,11 +50,13 @@ namespace AuthServer.API.Controllers
         /// <summary>
         /// Create Token By Refresh Token
         /// </summary>
-        /// <param name="createTokenByRefreshTokenCommand"></param>
+        /// <param name="createTokenByRefreshTokenRequest"></param>
         [HttpPost]
-        public async Task<CustomResponse<CreateTokenByRefreshTokenCommandResponse>> CreateTokenByRefreshToken(CreateTokenByRefreshTokenCommand createTokenByRefreshTokenCommand)
+        public async Task<CustomResponse<CreateTokenByRefreshTokenCommandResponse>> CreateTokenByRefreshToken(CreateTokenByRefreshTokenRequest createTokenByRefreshTokenRequest)
         {
-            var result = await _mediator.Send(createTokenByRefreshTokenCommand);
+            var command = new CreateTokenByRefreshTokenCommand(createTokenByRefreshTokenRequest.RefreshToken);
+
+            var result = await _mediator.Send(command);
 
             return CustomResponse<CreateTokenByRefreshTokenCommandResponse>.Success(result, (int)HttpStatusCode.Created);
         }

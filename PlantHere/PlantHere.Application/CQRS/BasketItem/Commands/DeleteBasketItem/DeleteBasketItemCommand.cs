@@ -7,5 +7,11 @@ namespace PlantHere.Application.CQRS.BasketItem.Commands.DeleteBasketItem
         public string? UserId { get; set; }
 
         public string ProductId { get; set; }
+
+        public DeleteBasketItemCommand(string? userId, string productId)
+        {
+            UserId = userId;
+            ProductId = productId;
+        }
     }
 }

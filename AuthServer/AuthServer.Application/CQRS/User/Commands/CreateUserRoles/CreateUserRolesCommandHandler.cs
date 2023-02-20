@@ -1,6 +1,4 @@
-﻿using AuthServer.Application.CQRS.User.Commands.CreateUser;
-using AuthServer.Application.Exceptions;
-using AuthServer.Application.Interfaces.Repositories;
+﻿using AuthServer.Application.Exceptions;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using UdemyAuthServer.Core.UnitOfWork;

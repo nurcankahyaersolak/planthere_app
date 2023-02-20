@@ -29,7 +29,7 @@ namespace PlantHere.Application.CQRS.Product.Commands.CreateProductsIndexES
         {
             await _elasticClient.Indices.DeleteAsync("products");
 
-            var products = _mapper.Map<ICollection<GetProductsESQueryResult>>(_unitOfWork.GetGenericRepository<ModelProduct>().GetQueryable());
+            var products = _mapper.Map<ICollection<GetProductsESQueryResult>>(_unitOfWork.GetGenericRepository<ModelProduct>().GetQueryableAsNoTracking());
 
             _elasticClient.Bulk(b => b
              .Index("products")

@@ -16,7 +16,8 @@ namespace PlantHere.Application.CQRS.Product.Queries.GetProductsCount
 
         public async Task<GetProductsCountQueryResult> Handle(GetProductsCountQuery request, CancellationToken cancellationToken)
         {
-            var count = _unitOfWork.GetGenericRepository<ModelProduct>().GetQueryable().Count();
+            var count = _unitOfWork.GetGenericRepository<ModelProduct>().GetQueryableAsNoTracking().Count();
+
             return new GetProductsCountQueryResult(count);
         }
     }

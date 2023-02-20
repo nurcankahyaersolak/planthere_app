@@ -23,7 +23,7 @@ namespace PlantHere.Application.CQRS.Order.Quries.GetOrderByUserId
 
         public async Task<ICollection<GetOrderByUserIdQueryResult>> Handle(GetOrderByUserIdQuery request, CancellationToken cancellationToken)
         {
-            var orders = await _unitOfWork.GetGenericRepository<ModelOrder>().GetQueryable().Include(x => x.OrderItems).Include(x => x.Address).Where(x => x.BuyerId == request.userId).ToListAsync();
+            var orders = await _unitOfWork.GetGenericRepository<ModelOrder>().GetQueryableAsNoTracking().Include(x => x.OrderItems).Include(x => x.Address).Where(x => x.BuyerId == request.userId).ToListAsync();
             return _mapper.Map<ICollection<GetOrderByUserIdQueryResult>>(orders);
         }
     }

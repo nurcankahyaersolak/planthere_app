@@ -17,7 +17,7 @@ namespace PlantHere.Application.CQRS.BasketItem.Commands.CreateBasketItem
         public async Task<CreateBasketItemCommandResult> Handle(CreateBasketItemCommand request, CancellationToken cancellationToken)
         {
             var basketRepository = _unitOfWork.GetGenericRepository<ModelBasket>();
-            
+
             var basket = await basketRepository.Where(x => x.UserId == request.UserId).Include(x => x.BasketItems).FirstOrDefaultAsync();
 
             if (basket == null)

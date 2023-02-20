@@ -6,7 +6,7 @@ namespace PlantHere.Application.Interfaces.Repositories
     {
         Task<T> GetByIdAsync(int id);
 
-        IQueryable<T> GetQueryable();
+        IQueryable<T> GetQueryableAsNoTracking();
 
         Task<List<T>> GetAsync();
 

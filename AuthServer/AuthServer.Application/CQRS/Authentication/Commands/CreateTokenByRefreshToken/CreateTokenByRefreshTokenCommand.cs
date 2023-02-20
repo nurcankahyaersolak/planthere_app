@@ -6,5 +6,9 @@ namespace AuthServer.Application.CQRS.Authentication.Queries.CreateTokenByRefres
     {
         public string RefreshToken { get; set; }
 
+        public CreateTokenByRefreshTokenCommand(string refreshToken)
+        {
+            RefreshToken = refreshToken;
+        }
     }
 }

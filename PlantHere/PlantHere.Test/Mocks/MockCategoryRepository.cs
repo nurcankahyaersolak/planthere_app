@@ -22,7 +22,7 @@ namespace PlantHere.Test.Mocks
                 var mockRepo = new Mock<IRepository<ModelCategory>>();
                 mockRepo.Setup(r => r.GetAsync()).ReturnsAsync(_products);
                 mockRepo.Setup(r => r.AddAsync((It.IsAny<ModelCategory>()))).Returns((Task.CompletedTask));
-                mockRepo.Setup(r => r.GetQueryable()).Returns(_products.AsQueryable());
+                mockRepo.Setup(r => r.GetQueryableAsNoTracking()).Returns(_products.AsQueryable());
                 mockRepo.Setup(r => r.Where(It.IsAny<Expression<Func<ModelCategory, bool>>>())).Returns(_products.AsQueryable());
                 return mockRepo;
             }

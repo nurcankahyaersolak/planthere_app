@@ -12,5 +12,11 @@ namespace PlantHere.Application.CQRS.Basket.Commands.BuyBasket
 
         public PaymentQueryResult Payment { get; set; }
 
+        public BuyBasketCommand(string? userId, ModelAddress address, PaymentQueryResult payment)
+        {
+            UserId = userId;
+            Address = address;
+            Payment = payment;
+        }
     }
 }

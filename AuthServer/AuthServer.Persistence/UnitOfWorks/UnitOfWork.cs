@@ -1,6 +1,5 @@
 ﻿using AuthServer.Application.Interfaces.Repositories;
 using AuthServer.Persistence.Repositories;
-using Microsoft.EntityFrameworkCore;
 using UdemyAuthServer.Core.UnitOfWork;
 
 namespace AuthServer.Persistence.UnitOfWorks

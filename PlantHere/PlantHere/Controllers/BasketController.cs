@@ -1,14 +1,14 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
-using DotNetCore.CAP;
-using System.Net;
+﻿using DotNetCore.CAP;
 using MediatR;
-using PlantHere.WebAPI.CustomResults;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PlantHere.Application.CQRS.Basket.Commands.BuyBasket;
 using PlantHere.Application.CQRS.Basket.Commands.CreateBasket;
 using PlantHere.Application.CQRS.Basket.Queries.GetBasketByUserId;
-
+using PlantHere.Application.Requests.Basket;
+using PlantHere.WebAPI.CustomResults;
+using System.Net;
+using System.Security.Claims;
 
 namespace PlantHere.WebAPI.Controllers
 {
@@ -42,7 +42,8 @@ namespace PlantHere.WebAPI.Controllers
         [HttpPost]
         public async Task<CustomResult<CreateBasketCommandResult>> CreateBasket(string userId)
         {
-            return CustomResult<CreateBasketCommandResult>.Success((int)HttpStatusCode.OK, await _mediator.Send(new CreateBasketCommand(userId)));
+            var command = new CreateBasketCommand(userId);
+            return CustomResult<CreateBasketCommandResult>.Success((int)HttpStatusCode.OK, await _mediator.Send(command));
         }
 
         /// <summary>
@@ -51,10 +52,14 @@ namespace PlantHere.WebAPI.Controllers
         /// <returns></returns>
         [Authorize(Roles = "customer,superadmin")]
         [HttpPost("buy")]
-        public async Task<CustomResult<BuyBasketCommandResult>> BuyBasket(BuyBasketCommand command)
+        public async Task<CustomResult<BuyBasketCommandResult>> BuyBasket(BuyBasketRequest buyBasketRequest)
         {
-            command.UserId = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
+            var userId = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            var command = new BuyBasketCommand(userId, buyBasketRequest.Address, buyBasketRequest.Payment);
+
             await _mediator.Send(command);
+
             return CustomResult<BuyBasketCommandResult>.Success(200);
         }
     }

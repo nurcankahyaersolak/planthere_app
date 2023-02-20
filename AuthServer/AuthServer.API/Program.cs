@@ -1,18 +1,13 @@
+using AuthServer.API.Middlewares;
 using AuthServer.Application;
 using AuthServer.Application.Configurations;
-using AuthServer.API.Middlewares;
 using AuthServer.Domain.Entities;
 using AuthServer.Persistence;
 using AuthServer.Persistence.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel;
-using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
 using Microsoft.AspNetCore.Identity;
-using System.Reflection;
-using Microsoft.AspNetCore.DataProtection;
-using Azure.Identity;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 

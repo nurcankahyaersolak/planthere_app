@@ -1,0 +1,446 @@
+{
+	"info": {
+		"_postman_id": "ec1c7e81-161a-497b-935f-7a662ac2b9ff",
+		"name": "DotNet_WebAPI_PlantHere",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "23953794"
+	},
+	"item": [
+		{
+			"name": "PlantHere",
+			"item": [
+				{
+					"name": "Category",
+					"item": [
+						{
+							"name": "GetCategory",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": {
+										"tokenType": "",
+										"addTokenTo": "header"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:5000/categories"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateCategory",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": {
+										"tokenType": "",
+										"addTokenTo": "header"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nameTr\" :\"Salon Bitkisi\",\r\n    \"nameEn\" : \"Hall Plant\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5000/categories"
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateCategory",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": {
+										"tokenType": "",
+										"addTokenTo": "header"
+									}
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \r\n    \"Id\" : 4,\r\n    \"NameTr\":\"Salon Bitkileri (Çiçekli)\",\r\n    \"NameEn\":\"Hall Plants\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5000/categories"
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteCategory",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": {
+										"tokenType": "",
+										"addTokenTo": "header"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Id\":7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5000/categories"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "CreateProduct",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": {
+										"tokenType": "",
+										"addTokenTo": "header"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Variegated Kaktüs\",\r\n    \"description\": \"Kırmızı\",\r\n    \"price\": 250,\r\n    \"sellerId\": \"d8a07002-0c3a-4add-874b-dd2b1e33aaae\",\r\n    \"categoryId\": 3,\r\n    \"stock\" : 2,\r\n    \"discount\" : 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5000/products"
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateProduct",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": {
+										"tokenType": "",
+										"addTokenTo": "header"
+									}
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Pachyphytum Oviferum\",\r\n    \"description\": \"Baden Şekeri\",\r\n    \"price\": 150,\r\n    \"uniqueId\": \"74161250-260d-45d8-ad9a-3bbdc6f05155_2022270910114757\",\r\n    \"sellerId\": \"d8a07002-0c3a-4add-874b-dd2b1e33aaae\",\r\n    \"stock\" :2,\r\n    \"discount\" :0,\r\n    \"id\": 18,\r\n    \"categoryId\" :1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5000/products"
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteProduct",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": {
+										"tokenType": "",
+										"addTokenTo": "header"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:5000/products/18"
+							},
+							"response": []
+						},
+						{
+							"name": "GetProductById",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": {
+										"tokenType": "",
+										"addTokenTo": "header"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:5000/products/9ab79b56-7368-4b80-a87c-75ce60322252_2023012009183940"
+							},
+							"response": []
+						},
+						{
+							"name": "GetProductsByPage",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5000/products/1/22"
+							},
+							"response": []
+						},
+						{
+							"name": "GetProductsCount",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:5000/products/count"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateProductsIndexES",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:5000/products/elastic-search-index"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Basket",
+					"item": [
+						{
+							"name": "GetBasketByUserId",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": {
+										"tokenType": "",
+										"addTokenTo": "header"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5000/baskets"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateBasket",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": {
+										"tokenType": "",
+										"addTokenTo": "header"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5000/baskets"
+							},
+							"response": []
+						},
+						{
+							"name": "BuyBasket",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": {
+										"tokenType": "",
+										"addTokenTo": "header"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"address\": {\r\n    \"province\": \"Istanbul\",\r\n    \"district\": \"Gölbaşı\",\r\n    \"street\": \"Seymenler\",\r\n    \"zipCode\": \"06720\",\r\n    \"line\": \"694\"\r\n  },\r\n  \"payment\": {\r\n    \"cardTypeId\": 6548,\r\n    \"cardNumber\": \"6854656865656586565 \",\r\n    \"cardSecurityNumber\": \"985\",\r\n    \"cardHolderName\": \"6\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5000/baskets/buy"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "BasketItem",
+					"item": [
+						{
+							"name": "AddBasket",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": {
+										"tokenType": "",
+										"addTokenTo": "header"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"productId\":\"86bff94b-69bf-46ab-a2b9-7d8e5b57f04b_2023010510300773\",\r\n  \"productName\": \"Pachyphytum Oviferum(Badem Şekeri)\",\r\n  \"price\": 50,\r\n  \"discountedPrice\": 20.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5000/basket-items"
+							},
+							"response": []
+						},
+						{
+							"name": "AddBasket(2)",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": {
+										"tokenType": "",
+										"addTokenTo": "header"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"productId\": \"d2c12a79-c548-4001-baef-d90f62bf02fa_2022041111113566\",\r\n  \"productName\": \"Phaphiopedilum Henryanum(Kaplan Orkide)\",\r\n  \"price\": 500,\r\n  \"discountedPrice\": 450\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5000/basket-items"
+							},
+							"response": []
+						},
+						{
+							"name": "DelBasketItem",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": {
+										"tokenType": "",
+										"addTokenTo": "header"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"productId\": \"74161250-260d-45d8-ad9a-3bbdc6f05155_2022270910114757\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5000/basket-items"
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateBasketItem",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": {
+										"tokenType": "",
+										"addTokenTo": "header"
+									}
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"productId\": \"74161250-260d-45d8-ad9a-3bbdc6f05155_2022270910114757\",\r\n  \"count\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5000/basket-items"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "GetOrderByUserId",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": {
+										"tokenType": "",
+										"addTokenTo": "header"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:5000/orders"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

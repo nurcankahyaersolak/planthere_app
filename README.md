@@ -10,7 +10,7 @@
 - Swagger
 - Redis Cache
 - Elastic Search
-
+- Aspnetcore Identity
 
 ## Backend Nodejs
 
@@ -54,18 +54,41 @@
 
 # Application Screenshots
 
-<img src=".\Documents\Images\6.png" width="720" >
-<img src=".\Documents\Images\7.png" width="720" >
-<img src=".\Documents\Images\1.png" width="720" >
-<img src=".\Documents\Images\2.png" width="720" >
-<img src=".\Documents\Images\3.png" width="720" >
-<img src=".\Documents\Images\4.png" width="720" >
-<img src=".\Documents\Images\8.png" width="720" >
-<img src=".\Documents\Images\5.png" width="720" >
+<img src=".\Documents\Images\UI\6.png" width="720" >
+<img src=".\Documents\Images\UI\7.png" width="720" >
+<img src=".\Documents\Images\UI\1.png" width="720" >
+<img src=".\Documents\Images\UI\2.png" width="720" >
+<img src=".\Documents\Images\UI\3.png" width="720" >
+<img src=".\Documents\Images\UI\4.png" width="720" >
+<img src=".\Documents\Images\UI\8.png" width="720" >
+<img src=".\Documents\Images\UI\5.png" width="720" >
 
+
+# Contributors
+
+<div>
+    <table>
+    <tbody>
+        <tr>
+        <td align="center"><a href="https://github.com/bariscantanriverdi"><img src="https://avatars.githubusercontent.com/u/48654557?v=4" width="100px;" alt="Barış Can Tanrıverdi"/><br /><sub><b>Barış Can Tanrıverdi</b></sub></a><br/>
+        <a title="Mentor">💪</a> 
+        <a title="Feedback">🤔</a>
+        <a title="Ideas">💡</a> 
+        </td>
+        <td align="center"><a href="https://github.com/bberberoglu">
+            <img src="https://avatars.githubusercontent.com/u/8998960?v=4" width="100px;" alt="Bilgehan Berberoğlu"/><br /><sub><b>Bilgehan Berberoğlu</b></sub></a><br/>
+            <a title="Tech Head">🤠</a>
+            <a title="Feedback">🤔</a>
+        </td>
+        </tr>
+    </tbody>
+    </table>
+</div>
 
 # Contact
 
 [![](https://img.shields.io/badge/github-yellow?style=for-the-badge)](https://github.com/nurcankahyaersolak)
 [![](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nurcan-ersolak-4919381a2)
 <a href="mailto:nurcankahyaersolak@gmail.com">![](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)</a>
+
+
