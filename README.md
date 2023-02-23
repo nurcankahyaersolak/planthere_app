@@ -71,14 +71,9 @@
     <tbody>
         <tr>
         <td align="center"><a href="https://github.com/bariscantanriverdi"><img src="https://avatars.githubusercontent.com/u/48654557?v=4" width="100px;" alt="Barış Can Tanrıverdi"/><br /><sub><b>Barış Can Tanrıverdi</b></sub></a><br/>
-        <a title="Mentor">💪</a> 
-        <a title="Feedback">🤔</a>
-        <a title="Ideas">💡</a> 
         </td>
         <td align="center"><a href="https://github.com/bberberoglu">
             <img src="https://avatars.githubusercontent.com/u/8998960?v=4" width="100px;" alt="Bilgehan Berberoğlu"/><br /><sub><b>Bilgehan Berberoğlu</b></sub></a><br/>
-            <a title="Tech Head">🤠</a>
-            <a title="Feedback">🤔</a>
         </td>
         </tr>
     </tbody>
