@@ -64,22 +64,6 @@
 <img src=".\Documents\Images\UI\5.png" width="720" >
 
 
-# Contributors
-
-<div>
-    <table>
-    <tbody>
-        <tr>
-        <td align="center"><a href="https://github.com/bariscantanriverdi"><img src="https://avatars.githubusercontent.com/u/48654557?v=4" width="100px;" alt="Barış Can Tanrıverdi"/><br /><sub><b>Barış Can Tanrıverdi</b></sub></a><br/>
-        </td>
-        <td align="center"><a href="https://github.com/bberberoglu">
-            <img src="https://avatars.githubusercontent.com/u/8998960?v=4" width="100px;" alt="Bilgehan Berberoğlu"/><br /><sub><b>Bilgehan Berberoğlu</b></sub></a><br/>
-        </td>
-        </tr>
-    </tbody>
-    </table>
-</div>
-
 # Contact
 
 [![](https://img.shields.io/badge/github-yellow?style=for-the-badge)](https://github.com/nurcankahyaersolak)
